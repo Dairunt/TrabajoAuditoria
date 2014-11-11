@@ -9,5 +9,9 @@
     <property name="hibernate.connection.password">1234</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="Model/Ejecutivo.hbm.xml"/>
+    <mapping resource="Model/Cuentas.hbm.xml"/>
+    <mapping resource="Model/Liga.hbm.xml"/>
+    <mapping resource="Model/Equipo.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

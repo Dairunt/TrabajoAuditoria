@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-11-2014 07:19:29 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Model.Equipo" table="equipo" catalog="bdtrabajoauditoria">
+        <id name="idEquipo" type="java.lang.Integer">
+            <column name="idEquipo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="liga" class="Model.Liga" fetch="select">
+            <column name="idLiga" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="puntaje" type="java.lang.Integer">
+            <column name="puntaje" />
+        </property>
+        <set name="ejecutivos" table="ejecutivo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idEquipo" not-null="true" />
+            </key>
+            <one-to-many class="Model.Ejecutivo" />
+        </set>
+    </class>
+</hibernate-mapping>
