@@ -6,11 +6,11 @@
 
 package Bean;
 
+import Dao.LigaDao;
+import Model.Liga;
 import java.util.List;
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.faces.view.ViewScoped;
-
+import javax.inject.Named;
 /**
  *
  * @author FrancoSebastian
@@ -20,29 +20,44 @@ import javax.faces.view.ViewScoped;
 public class beanLiga implements Operaciones {
 
     /**
-     * Creates a new instance of beanLiga
+     * Creates a new instance of beanCuentas
      */
-    public beanLiga() {
+    List<Liga> ligas;
+    Liga liga;
+    
+    public beanLiga(){
+        Liga liga = new Liga();
     }
+    
 
     @Override
     public List Listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LigaDao linkDao = new LigaDao();
+        ligas = linkDao.Listar();
+        return ligas;
     }
 
     @Override
     public void Insertar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LigaDao linkDao = new LigaDao();
+        linkDao.Insertar(liga);
+        liga=new Liga();
     }
 
     @Override
     public void Actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LigaDao linkDao = new LigaDao();
+        linkDao.Actualizar(liga);
+        liga = new Liga();
     }
 
     @Override
     public void Borrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LigaDao linkDao = new LigaDao();
+        linkDao.Borrar(liga);
+        liga = new Liga();
     }
     
-}
+    
+    }
+    

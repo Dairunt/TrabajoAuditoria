@@ -6,10 +6,11 @@
 
 package Bean;
 
+import Dao.EquipoDao;
+import Model.Equipo;
 import java.util.List;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-
+import javax.inject.Named;
 /**
  *
  * @author FrancoSebastian
@@ -19,29 +20,45 @@ import javax.faces.view.ViewScoped;
 public class beanEquipo implements Operaciones {
 
     /**
-     * Creates a new instance of beanEquipo
+     * Creates a new instance of beanCuentas
      */
-    public beanEquipo() {
+    List<Equipo> equipos;
+    Equipo equipo;
+    
+    public beanEquipo(){
+        Equipo equipos=new Equipo(); 
     }
+    
 
     @Override
     public List Listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EquipoDao linkDao = new EquipoDao();
+        equipos = linkDao.Listar();
+        return equipos;
     }
 
     @Override
     public void Insertar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EquipoDao linkDao = new EquipoDao();
+        linkDao.Insertar(equipo);
+        equipo=new Equipo(); //
     }
 
     @Override
     public void Actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EquipoDao linkDao = new EquipoDao();
+        linkDao.Actualizar(equipo);
+        equipo=new Equipo();
     }
 
     @Override
     public void Borrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EquipoDao linkDao = new EquipoDao();
+        linkDao.Borrar(equipo);
+        equipo=new Equipo();
     }
     
-}
+    
+    }
+    
+

@@ -6,10 +6,11 @@
 
 package Bean;
 
+import Dao.EjecutivoDao;
+import Model.Ejecutivo;
 import java.util.List;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-
+import javax.inject.Named;
 /**
  *
  * @author FrancoSebastian
@@ -19,29 +20,45 @@ import javax.faces.view.ViewScoped;
 public class beanEjecutivo implements Operaciones {
 
     /**
-     * Creates a new instance of beanEjecutivo
+     * Creates a new instance of beanCuentas
      */
-    public beanEjecutivo() {
+    List<Ejecutivo> ejecutivos;
+    Ejecutivo ejecutivo;
+    
+    public beanEjecutivo(){
+        Ejecutivo ejecutivos=new Ejecutivo(); 
     }
+    
 
     @Override
     public List Listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EjecutivoDao linkDao = new EjecutivoDao();
+        ejecutivos = linkDao.Listar();
+        return ejecutivos;
     }
 
     @Override
     public void Insertar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EjecutivoDao linkDao = new EjecutivoDao();
+        linkDao.Insertar(ejecutivo);
+        ejecutivo=new Ejecutivo();
     }
 
     @Override
     public void Actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EjecutivoDao linkDao = new EjecutivoDao();
+        linkDao.Actualizar(ejecutivo);
+        ejecutivo=new Ejecutivo();
     }
 
     @Override
     public void Borrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EjecutivoDao linkDao = new EjecutivoDao();
+        linkDao.Borrar(ejecutivo);
+        ejecutivo=new Ejecutivo();
     }
     
-}
+    
+    }
+    
+
