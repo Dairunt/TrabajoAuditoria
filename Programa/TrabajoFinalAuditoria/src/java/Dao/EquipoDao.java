@@ -91,7 +91,7 @@ public class EquipoDao implements Operaciones {
             session.delete(equipo);
             session.getTransaction().commit();
 
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.getMessage());
             session.getTransaction().rollback();
         } finally {

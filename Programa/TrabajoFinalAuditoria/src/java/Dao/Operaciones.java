@@ -12,6 +12,7 @@ import java.util.List;
 /**
  *
  * @author FrancoSebastian
+ * @param <T>
  */
 public interface Operaciones <T>  {
     public List<T> Listar();
