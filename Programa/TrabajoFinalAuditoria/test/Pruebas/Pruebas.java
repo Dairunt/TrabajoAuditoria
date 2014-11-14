@@ -6,13 +6,17 @@
 
 package Pruebas;
 
+import Bean.beanEquipo;
+import Bean.beanLiga;
+import Model.Equipo;
+import Model.Liga;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
-
 /**
  *
  * @author FrancoSebastian
@@ -43,6 +47,12 @@ public class Pruebas {
     //
      @Test
      public void hello() {
-         
-         assertEquals(1, 0);}
+
+        beanLiga liga1 = new beanLiga();
+        List<Liga> ligaList= liga1.Listar();
+         for (int i = 0; i < ligaList.size(); i++) 
+             System.out.println(ligaList.get(i).getNombre());
+         //  assertEquals(1, 0);}
+         }
+       
 }
