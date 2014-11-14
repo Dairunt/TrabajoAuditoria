@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author FrancoSebastian
  */
-public class NewEmptyJUnitTest {
+public class Pruebas {
     
-    public NewEmptyJUnitTest() {
+    public Pruebas() {
     }
     
     @BeforeClass
@@ -41,6 +41,8 @@ public class NewEmptyJUnitTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
+     @Test
+     public void hello() {
+         
+         assertEquals(1, 0);}
 }
