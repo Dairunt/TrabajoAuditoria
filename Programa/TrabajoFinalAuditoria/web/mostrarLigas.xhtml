@@ -10,52 +10,42 @@
     <h:body>
         <h:form id="formInsertar">
           <p:panelGrid columns="2">
-              
-          <p:outputLabel value="Nombre de la liga" />
-          <p:inputText value="#{beanEquipo.liga}"/>
           
           <p:outputLabel value="Nombre del equipo" />
-          <p:inputText value="#{beanEquipo.equipos.nombre}"/>
+          <p:inputText value="#{beanLiga.ligas.nombre}"/>
           
-          <p:outputLabel value="Puntaje del equipo" />
-          <p:inputText value="#{beanEquipo.equipos.puntaje}"/>
           
         </p:panelGrid>
-        <p:commandButton actionListener="#{beanEquipo.insertar()}" value="Ingresar Liga"/>
+        <p:commandButton actionListener="#{beanLiga.insertar()}" value="Ingresar Liga"/>
         </h:form>
       
          <h:form id="formMostrar">
-            <p:dataTable var="eqp" value="#{beanEquipo.ligas}"
+            <p:dataTable var="lga" value="#{beanLiga.ligas}"
                          emptyMessage = "No hay ligas disponibles."
                          paginator="true" rows="10" paginatorPosition="top"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink}
                          {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}
                          {RowsPerPageDropdown}" rowsPerPageTemplate="10">
         
-                <p:column headerText="Liga">
-                    <h:outputText value="#{eqp.liga}" />
                 </p:column>
                 <p:column headerText="Nombre">
-                    <h:outputText value="#{eqp.nombre}" />
-                </p:column>
-                <p:column headerText="Puntaje">
-                    <h:outputText value="#{eqp.puntaje}"/>
+                    <h:outputText value="#{lga.nombre}" />
                 </p:column>
             </p:dataTable>
         </h:form>
         
-        <p:commandButton actionListener="#{beanEquipo.insertar()}"
+        <p:commandButton actionListener="#{beanLiga.insertar()}"
                          value = "Ingresar ejecutivo" update = ":formMostrar" />
         
         <p:column headerText="Modificar">
             <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()"
                              update=":formModificar">
-                <f:setPropertyActionListener target="#{beanEquipo.equipoDao}" value="#{eqp}"/>
+                <f:setPropertyActionListener target="#{beanLiga.liga}" value="#{lga}"/>
             </p:commandButton>
         </p:column>
         <p:column headerText="Eliminar">
             <p:commandButton value="Eliminar" oncomplete="dlgeliminar.show()">
-                <f:setPropertyActionListener target="#{beanEquipo.equipoDao}" value="#{eqp}" />
+                <f:setPropertyActionListener target="#{beanLiga.liga}" value="#{lga}" />
             </p:commandButton>
         </p:column>
         
@@ -63,16 +53,12 @@
             widgetVar="dlgmodificar" modal="true" resizable="false" minWidth="200">
             <h:form id="formModificar">
                 <p:panelGrid columns="2">
-                    <p:outputLabel value="Nombre de la liga"/>
-                    <p:inputText value="#{beanEquipo.liga}"/>
                     <p:outputLabel value="Nombre del equipo"/>
-                    <p:inputText value="#{beanLiga.nombre}"/>
-                    <p:outputLabel value="Puntaje del equipo"/>
-                    <p:inputText value="#{beanLiga.puntaje}"/>
+                    <p:inputText value="#{beanLiga.ligas.nombre}"/>
                 </p:panelGrid>
                 
                 <p:commandButton value="Actualizar" update=":formMostrar"
-                                 actionListener ="#{beanEquipo.actualizar()}"
+                                 actionListener ="#{beanLiga.actualizar()}"
                                  oncomplete="dlgmodificar.hide();"/>
             </h:form>
         </p:dialog>
@@ -82,7 +68,7 @@
                     minWidth="200">
             <h:form id="formEliminar">
                 <h:outputText value="¿Desea eliminar?" />
-                <p:commandButton value="Si" actionListener="#{beanEquipo.borrar()}"
+                <p:commandButton value="Si" actionListener="#{beanLiga.borrar()}"
                                  update=":formMostrar" oncomplete="dlgeliminar.hide();"/>
                 <p:commandButton value="No" onclick="dlg2.hide();"/>
             </h:form>
