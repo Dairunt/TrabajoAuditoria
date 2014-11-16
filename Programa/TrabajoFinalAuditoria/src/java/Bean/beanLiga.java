@@ -24,6 +24,22 @@ public class beanLiga implements Operaciones {
      */
     List<Liga> ligas;
     Liga liga;
+
+    public List<Liga> getLigas() {
+        return ligas;
+    }
+
+    public void setLigas(List<Liga> ligas) {
+        this.ligas = ligas;
+    }
+
+    public Liga getLiga() {
+        return liga;
+    }
+
+    public void setLiga(Liga liga) {
+        this.liga = liga;
+    }
     
     public beanLiga(){
         Liga liga = new Liga();

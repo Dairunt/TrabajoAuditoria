@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
     <h:head>
         <title> Rumbo al Mundial 2018 </title>
     </h:head>
@@ -12,26 +12,26 @@
           <p:panelGrid columns="2">
               
           <p:outputLabel value="Nombre de la persona" />
-          <p:inputText value="#{beanEjecutivo.ejecutivoDao.nombre}"/>
+          <p:inputText value="#{beanEjecutivo.ejecutivo}"/>
           
           <p:outputLabel value="RUT de la persona" />
-          <p:inputText value="#{beanEjecutivo.ejecutivoDao.rut}"/>
+          <p:inputText value="#{beanEjecutivo.ejecutivo.rut}"/>
           
           <p:outputLabel value="E-Mail de la persona" />
-          <p:inputText value="#{beanEjecutivo.ejecutivoDao.email}"/>
+          <p:inputText value="#{beanEjecutivo.ejecutivo.email}"/>
           
           <p:outputLabel value="Teléfono de la persona" />
-          <p:inputText value="#{beanEjecutivo.ejecutivoDao.telefono}"/>
+          <p:inputText value="#{beanEjecutivo.ejecutivo.telefono}"/>
 
           <p:outputLabel value="Fecha Ingreso de la persona" />
-          <p:calendar value="#{beanEjecutivo.ejecutivoDao.fechaIngreso}"/>
+          <p:calendar value="#{beanEjecutivo.ejecutivo.fechaIngreso}"/>
           
           </p:panelGrid>
-          <p:commandButton actionListener="#{beanEjecutivo.insertar()}" value="Ingresar persona"/>
+          <p:commandButton actionListener="#{beanEjecutivo.insertar()}" value="Ingresar Ejecutivo" update = ":formMostrar" />
         </h:form>
       
          <h:form id="formMostrar">
-            <p:dataTable var="eje" value="#{beanEjecutivo.personas}"
+             <p:dataTable var="eje" value="#{beanEjecutivo.ejecutivos}"
                          emptyMessage = "No hay personas disponibles."
                          paginator="true" rows="10" paginatorPosition="top"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink}
@@ -54,24 +54,25 @@
                     <h:outputText value="#{eje.telefono}"/>
                 </p:column>
                 <p:column headerText="Fecha Ingreso">
-                    <h:outputText value="#{eje.fechaIngreso}"/>
-                     <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    <h:outputText value="#{eje.fechaIngreso}">
+                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    
                 </p:column>
             </p:dataTable>
         </h:form>
         
-        <p:commandButton actionListener="#{beanEjecutivo.insertar()}"
-                         value = "Ingresar ejecutivo" update = ":formMostrar" />
+      
         
         <p:column headerText="Modificar">
             <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()"
                              update=":formModificar">
-                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivoDao}" value="#{per}"/>
+                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivo}" value="#{per}"/>
             </p:commandButton>
         </p:column>
         <p:column headerText="Eliminar">
             <p:commandButton value="Eliminar" oncomplete="dlgeliminar.show()">
-                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivoDao}" value="#{per}" />
+                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivo}" value="#{per}" />
             </p:commandButton>
         </p:column>
         
@@ -80,15 +81,15 @@
             <h:form id="formModificar">
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Nombre del ejecutivo"/>
-                    <p:inputText value="#{beanEjecutivo.ejecutivoDao.nombre}"/>
+                    <p:inputText value="#{beanEjecutivo.ejecutivo.nombre}"/>
                     <p:outputLabel value="RUT del ejecutivo"/>
-                    <p:inputText value="#{beanEjecutivo.ejecutivoDao.rut}"/>
+                    <p:inputText value="#{beanEjecutivo.ejecutivo.rut}"/>
                     <p:outputLabel value="Email del ejecutivo"/>
-                    <p:inputText value="#{beanEjecutivo.ejecutivoDao.email}"/>
+                    <p:inputText value="#{beanEjecutivo.ejecutivo.email}"/>
                     <p:outputLabel value="Telefono del ejecutivo"/>
-                    <p:inputText value="#{beanEjecutivo.ejecutivoDao.telefono}"/>
+                    <p:inputText value="#{beanEjecutivo.ejecutivo.telefono}"/>
                     <p:outputLabel value="Fecha Ingreso del ejecutivo"/>
-                    <p:inputText value="#{beanEjecutivo.ejecutivoDao.fechaIngreso}"/>
+                    <p:inputText value="#{beanEjecutivo.ejecutivo.fechaIngreso}"/>
                 </p:panelGrid>
                 
                 <p:commandButton value="Actualizar" update=":formMostrar"

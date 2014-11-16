@@ -24,6 +24,22 @@ public class beanEquipo implements Operaciones {
      */
     List<Equipo> equipos;
     Equipo equipo;
+
+    public List<Equipo> getEquipos() {
+        return equipos;
+    }
+
+    public void setEquipos(List<Equipo> equipos) {
+        this.equipos = equipos;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
     
     public beanEquipo(){
         Equipo equipos=new Equipo(); 

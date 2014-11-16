@@ -24,6 +24,26 @@ public class beanEjecutivo implements Operaciones {
      */
     List<Ejecutivo> ejecutivos;
     Ejecutivo ejecutivo;
+
+    public List<Ejecutivo> getEjecutivos() {
+        return ejecutivos;
+    }
+
+    public void setEjecutivos(List<Ejecutivo> ejecutivos) {
+        this.ejecutivos = ejecutivos;
+    }
+
+    public Ejecutivo getEjecutivo() {
+        return ejecutivo;
+    }
+
+    public void setEjecutivo(Ejecutivo ejecutivo) {
+        this.ejecutivo = ejecutivo;
+    }
+    
+    
+    
+    
     
     public beanEjecutivo(){
         Ejecutivo ejecutivos=new Ejecutivo(); 

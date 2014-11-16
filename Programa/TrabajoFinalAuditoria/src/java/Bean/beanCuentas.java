@@ -25,6 +25,23 @@ public class beanCuentas implements Operaciones {
      */
     List<Cuentas> cuentas;
     Cuentas cuenta;
+
+    public List<Cuentas> getCuentas() {
+        return cuentas;
+    }
+
+    public void setCuentas(List<Cuentas> cuentas) {
+        this.cuentas = cuentas;
+    }
+
+    public Cuentas getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuentas cuenta) {
+        this.cuenta = cuenta;
+    }
+    
     public beanCuentas() {
        Cuentas cuenta=new Cuentas(); 
     }
