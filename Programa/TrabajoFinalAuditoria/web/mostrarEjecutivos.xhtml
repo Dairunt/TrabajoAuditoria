@@ -12,7 +12,7 @@
           <p:panelGrid columns="2">
               
           <p:outputLabel value="Nombre de la persona" />
-          <p:inputText value="#{beanEjecutivo.ejecutivo}"/>
+          <p:inputText value="#{beanEjecutivo.ejecutivo.nombre}"/>
           
           <p:outputLabel value="RUT de la persona" />
           <p:inputText value="#{beanEjecutivo.ejecutivo.rut}"/>
@@ -67,12 +67,12 @@
         <p:column headerText="Modificar">
             <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()"
                              update=":formModificar">
-                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivo}" value="#{per}"/>
+                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivo}" value="#{eje}"/>
             </p:commandButton>
         </p:column>
         <p:column headerText="Eliminar">
             <p:commandButton value="Eliminar" oncomplete="dlgeliminar.show()">
-                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivo}" value="#{per}" />
+                <f:setPropertyActionListener target="#{beanEjecutivo.ejecutivo}" value="#{eje}" />
             </p:commandButton>
         </p:column>
         
