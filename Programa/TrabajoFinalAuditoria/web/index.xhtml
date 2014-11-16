@@ -4,29 +4,16 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core" >
-    <h:head>
-        <title> Rumbo al Mundial 2018 </title>
-    </h:head>
-    <h:body>
-        <h:form id="formMostrar">
-            <p:dataTable var="per" value="#{personaBean.personas}"
-                         emptyMessage = "No hay personas disponibles."
-                         paginator="true" rows="10" paginatorPosition="top"
-                         paginatorTemplate="{CurrentPageReport} {FirstPageLink}
-                         {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}
-                         {RowsPerPageDropdown}" rowsPerPageTemplate="10">
-        
-                <p:column headerText="Id Persona">
-                    <h:outputText value="#{per.idPersona}" />
-                </p:column>
-                <p:column headerText="Nombre">
-                    <h:outputText value="#{per.nombre}" />
-                </p:column>
-                <p:column headerText="Apellido">
-                    <h:outputText value="#{per.apellido}"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-    </h:body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Rumbo al Mundial 2018</title>
+    </head>
+    <body>
+        <h1>Menú</h1>
+        <a href= "mostrarCuentas.xhtml"> Cuentas </a><br>
+        <a href= "mostrarEjecutivos.xhtml"> Ejecutivos</a><br> 
+        <a href= "mostrarEquipos.xhtml"> Equipos</a><br> 
+        <a href= "mostrarLigas.xhtml"> Ligas</a><br> 
+    </body>
 </html>
 
