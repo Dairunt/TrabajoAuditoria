@@ -26,8 +26,6 @@
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink}
                          {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}
                          {RowsPerPageDropdown}" rowsPerPageTemplate="10">
-        
-                </p:column>
                 <p:column headerText="Nombre">
                     <h:outputText value="#{lga.nombre}" />
                 </p:column>
@@ -35,7 +33,7 @@
         </h:form>
         
         <p:commandButton actionListener="#{beanLiga.insertar()}"
-                         value = "Ingresar ejecutivo" update = ":formMostrar" />
+                         value = "Ingresar Liga" update = ":formMostrar" />
         
         <p:column headerText="Modificar">
             <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()"

@@ -22,14 +22,13 @@
         </h:form>
       
          <h:form id="formMostrar">
-            <p:dataTable var="eqp" value="#{beanEquipo.equipos}"
+            <p:dataTable var="eqp" value="#{beanEquipo.equipos}" 
                          emptyMessage = "No hay equipos disponibles."
                          paginator="true" rows="3" paginatorPosition="top"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink}
                          {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}
                          {RowsPerPageDropdown}" rowsPerPageTemplate="10">
         
-                </p:column>
                 <p:column headerText="Nombre">
                     <h:outputText value="#{eqp.nombre}" />
                 </p:column>
