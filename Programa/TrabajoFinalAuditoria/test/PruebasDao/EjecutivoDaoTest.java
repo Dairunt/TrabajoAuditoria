@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Pruebas;
+package PruebasDao;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author FrancoSebastian
  */
-public class NewEmptyJUnitTest {
+public class EjecutivoDaoTest {
     
-    public NewEmptyJUnitTest() {
+    public EjecutivoDaoTest() {
     }
     
     @BeforeClass

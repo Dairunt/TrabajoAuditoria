@@ -24,14 +24,16 @@ public class EjecutivoDao implements Operaciones{
         Session session = null;
         List<Ejecutivo> ejecutivo = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
-            Query query = session.createQuery("from Ejecutivo");
+             session = NewHibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from Ejecutivo"); 
             ejecutivo = (List<Ejecutivo>) query.list();
         } catch (HibernateException e) {
             System.out.println(e.toString());
         } finally {
+            //Revizaaaaaaaaaaar !!!
+            //Esta linea de codigo estaba dejando la pura caga 
             if (session != null) {
-                session.close();
+                //session.close();
             }
         }
         return ejecutivo;
@@ -42,17 +44,17 @@ public class EjecutivoDao implements Operaciones{
         Session session = null;
         try {
             Ejecutivo ejecutivo = (Ejecutivo) value;
-            session = NewHibernateUtil.getSessionFactory().openSession();
+             session = NewHibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.save(ejecutivo);
-            session.getTransaction().commit();
+           
 
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+              //  session.close();
 
             }
 
@@ -64,17 +66,17 @@ public class EjecutivoDao implements Operaciones{
          Session session = null;
         try {
             Ejecutivo ejecutivo = (Ejecutivo) value;
-            session = NewHibernateUtil.getSessionFactory().openSession();
+             session = NewHibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.update(ejecutivo);
-            session.getTransaction().commit();
+         
 
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+             //   session.close();
 
             }
 
@@ -86,17 +88,17 @@ public class EjecutivoDao implements Operaciones{
         Session session = null;
         try {
             Ejecutivo ejecutivo = (Ejecutivo) value;
-            session = NewHibernateUtil.getSessionFactory().openSession();
+             session = NewHibernateUtil.getSessionFactory().openSession();;
             session.beginTransaction();
             session.delete(ejecutivo);
-            session.getTransaction().commit();
+           
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+             //   session.close();
 
             }
 

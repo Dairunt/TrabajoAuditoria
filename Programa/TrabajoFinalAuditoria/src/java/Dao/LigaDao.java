@@ -53,7 +53,7 @@ public class LigaDao implements Operaciones {
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+                //ession.close();
 
             }
 
@@ -97,7 +97,7 @@ public class LigaDao implements Operaciones {
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+               // session.close();
 
             }
 

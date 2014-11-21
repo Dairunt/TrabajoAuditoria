@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+    <h:head>
+        <title> Rumbo al Mundial 2018 </title>
+    </h:head>
+    
+    <h:body>
+         <h2>Ingresar nuevo ejecutivo </h2>
+        <h:form id="formInsertar">
+          <p:panelGrid columns="2">
+              
+          <p:outputLabel value="Nombre" />
+          <p:inputText value="#{beanEjecutivo.ejecutivo.nombre}"/>
+          
+          <p:outputLabel value="RUT" />
+          <p:inputText value="#{beanEjecutivo.ejecutivo.rut}"/>
+          
+          <p:outputLabel value="E-Mail" />
+          <p:inputText value="#{beanEjecutivo.ejecutivo.email}"/>
+          
+          <p:outputLabel value="Teléfono" />
+          <p:inputText value="#{beanEjecutivo.ejecutivo.telefono}"/>
+
+          <p:outputLabel value="Fecha Ingreso al trabajo" />
+          <p:calendar value="#{beanEjecutivo.ejecutivo.fechaIngreso}"/>
+         
+          <p:outputLabel value="Equipo" />
+          <h:selectOneMenu value="#{beanEjecutivo.ejecutivo.equipo}">
+              <f:selectItems value="#{beanEquipo.equipos}" var="equi" itemLabel="#{equi.nombre}" itemValue="#{equi.idEquipo}"  />
+          </h:selectOneMenu>
+          </p:panelGrid>
+            
+          <h:commandButton actionListener="#{beanEjecutivo.Insertar}" value="Ingresar Ejecutivo" />
+          
+        </h:form>
+         <h2>Ejecutivos </h2>
+         <h:form id="formMostrar">
+             <p:dataTable var="eje" value="#{beanEjecutivo.ejecutivos}"
+                         emptyMessage = "No hay personas disponibles."
+                         paginator="true" rows="10" paginatorPosition="top"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+                         {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}
+                         {RowsPerPageDropdown}" rowsPerPageTemplate="10">
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{eje.nombre}" />
+                </p:column>
+                <p:column headerText="RUT">
+                    <h:outputText value="#{eje.rut}"/>
+                </p:column>
+                <p:column headerText="E-Mail">
+                    <h:outputText value="#{eje.email}"/>
+                </p:column>
+                <p:column headerText="Telefono">
+                    <h:outputText value="#{eje.telefono}"/>
+                </p:column>
+                <p:column headerText="Fecha Ingreso">
+                    <h:outputText value="#{eje.fechaIngreso}">
+                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                     </p:column>
+                <p:column headerText="Equipo">
+                    <h:outputText value="#{eje.equipo.nombre}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+      
+       
+    </h:body>
+</html>
+

@@ -8,17 +8,15 @@
         <title> Rumbo al Mundial 2018 </title>
     </h:head>
     <h:body>
+        
+        
         <h:form id="formInsertar">
           <p:panelGrid columns="2">
               
-          <p:outputLabel value="Nombre del equipo" />
-          <p:inputText value="#{beanEquipo.equipos.nombre}"/>
-          
-          <p:outputLabel value="Puntaje del equipo" />
-          <p:inputText value="#{beanEquipo.equipos.puntaje}"/>
+         
           
         </p:panelGrid>
-        <p:commandButton actionListener="#{beanEquipo.insertar()}" value="Ingresar Equipo"/>
+        <h:commandButton actionListener="#{beanEquipo.insertar()}" value="Ingresar Equipo"/>
         </h:form>
       
          <h:form id="formMostrar">
@@ -35,50 +33,28 @@
                 <p:column headerText="Puntaje">
                     <h:outputText value="#{eqp.puntaje}"/>
                 </p:column>
-            </p:dataTable>
-        </h:form>
-        
-        <p:commandButton actionListener="#{beanEquipo.insertar()}"
-                         value = "Ingresar ejecutivo" update = ":formMostrar" />
-        
-        <p:column headerText="Modificar">
-            <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()"
-                             update=":formModificar">
-                <f:setPropertyActionListener target="#{beanEquipo.equipo}" value="#{eqp}"/>
-            </p:commandButton>
-        </p:column>
-        <p:column headerText="Eliminar">
+                
+                <p:column headerText="Eliminar">
             <p:commandButton value="Eliminar" oncomplete="dlgeliminar.show()">
                 <f:setPropertyActionListener target="#{beanEquipo.equipo}" value="#{eqp}" />
             </p:commandButton>
         </p:column>
-        
-        <p:dialog id="dlg" header="Modificar equipo" showEffect="explode" hideEffect="explode"
-            widgetVar="dlgmodificar" modal="true" resizable="false" minWidth="200">
-            <h:form id="formModificar">
-                <p:panelGrid columns="2">
-                    <p:outputLabel value="Nombre del equipo"/>
-                    <p:inputText value="#{beanEquipo.equipos.nombre}"/>
-                    <p:outputLabel value="Puntaje del equipo"/>
-                    <p:inputText value="#{beanEquipo.equipos.puntaje}"/>
-                </p:panelGrid>
-                
-                <p:commandButton value="Actualizar" update=":formMostrar"
-                                 actionListener ="#{beanEquipo.actualizar()}"
-                                 oncomplete="dlgmodificar.hide();"/>
-            </h:form>
-        </p:dialog>
+
+       
+            </p:dataTable>
+        </h:form>
         
         <p:dialog id="dlg2" header="Eliminar equipo" showEffect="explode" 
                   hideEffect="explode" widgetVar="dlgeliminar" modal="true" resizable="false"
                     minWidth="200">
             <h:form id="formEliminar">
                 <h:outputText value="¿Desea eliminar?" />
-                <p:commandButton value="Si" actionListener="#{beanEquipo.borrar()}"
+                <p:commandButton value="Si" actionListener="#{beanEquipo.Borrar()}"
                                  update=":formMostrar" oncomplete="dlgeliminar.hide();"/>
                 <p:commandButton value="No" onclick="dlg2.hide();"/>
             </h:form>
         </p:dialog>
+        
     </h:body>
 </html>
 

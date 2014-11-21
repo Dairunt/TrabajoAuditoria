@@ -4,26 +4,22 @@
  * and open the template in the editor.
  */
 
-package Pruebas;
+package PruebasDao;
 
-import Bean.beanEquipo;
-import Bean.beanLiga;
-import Model.Equipo;
-import Model.Liga;
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
+
 /**
  *
  * @author FrancoSebastian
  */
-public class Pruebas {
+public class EquipoDaoTest {
     
-    public Pruebas() {
+    public EquipoDaoTest() {
     }
     
     @BeforeClass
@@ -45,14 +41,6 @@ public class Pruebas {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
-     public void hello() {
-
-        beanLiga liga1 = new beanLiga();
-        List<Liga> ligaList= liga1.Listar();
-         for (int i = 0; i < ligaList.size(); i++) 
-             System.out.println(ligaList.get(i).getNombre());
-         //  assertEquals(1, 0);}
-         }
-       
+    // @Test
+    // public void hello() {}
 }

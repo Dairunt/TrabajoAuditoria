@@ -26,6 +26,8 @@ public class beanLiga implements Operaciones {
     Liga liga;
 
     public List<Liga> getLigas() {
+         LigaDao linkDao = new LigaDao();
+        ligas = linkDao.Listar();
         return ligas;
     }
 
@@ -42,8 +44,9 @@ public class beanLiga implements Operaciones {
     }
     
     public beanLiga(){
-        Liga liga = new Liga();
-    }
+         liga = new Liga();
+                 
+        }
     
 
     @Override

@@ -27,6 +27,8 @@ public class beanCuentas implements Operaciones {
     Cuentas cuenta;
 
     public List<Cuentas> getCuentas() {
+        CuentasDao linkDao = new CuentasDao();
+        cuentas = linkDao.Listar();
         return cuentas;
     }
 
@@ -43,7 +45,7 @@ public class beanCuentas implements Operaciones {
     }
     
     public beanCuentas() {
-       Cuentas cuenta=new Cuentas(); 
+        cuenta=new Cuentas(); 
     }
     
 

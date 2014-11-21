@@ -9,6 +9,7 @@ package Dao;
 import Model.Cuentas;
 import Model.Equipo;
 import Persistencia.NewHibernateUtil;
+
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -28,11 +29,12 @@ public class CuentasDao implements Operaciones{
             session = NewHibernateUtil.getSessionFactory().openSession();
             Query query = session.createQuery("from Cuentas");
             cuenta = (List<Cuentas>) query.list();
+            session.getTransaction().commit();
         } catch (HibernateException e) {
             System.out.println(e.toString());
         } finally {
             if (session != null) {
-                session.close();
+             //  session.close();
             }
         }
         return cuenta;
@@ -53,7 +55,7 @@ public class CuentasDao implements Operaciones{
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+              //  session.close();
 
             }
 
@@ -65,7 +67,7 @@ public class CuentasDao implements Operaciones{
          Session session = null;
         try {
             Cuentas cuenta = (Cuentas) value;
-            session = NewHibernateUtil.getSessionFactory().openSession();
+             session = NewHibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.update(cuenta);
             session.getTransaction().commit();
@@ -75,7 +77,7 @@ public class CuentasDao implements Operaciones{
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+           //    session.close();
 
             }
 
@@ -97,7 +99,7 @@ public class CuentasDao implements Operaciones{
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+        //      session.close();
 
             }
 

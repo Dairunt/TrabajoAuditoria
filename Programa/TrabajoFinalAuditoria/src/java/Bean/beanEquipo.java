@@ -26,6 +26,8 @@ public class beanEquipo implements Operaciones {
     Equipo equipo;
 
     public List<Equipo> getEquipos() {
+        EquipoDao linkDao = new EquipoDao();
+        equipos = linkDao.Listar();
         return equipos;
     }
 
@@ -42,7 +44,7 @@ public class beanEquipo implements Operaciones {
     }
     
     public beanEquipo(){
-        Equipo equipos=new Equipo(); 
+        equipo= new Equipo();
     }
     
 

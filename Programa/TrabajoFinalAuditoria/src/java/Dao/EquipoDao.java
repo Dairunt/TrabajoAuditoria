@@ -24,14 +24,15 @@ public class EquipoDao implements Operaciones {
         Session session = null;
         List<Equipo> equipo = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+             session = NewHibernateUtil.getSessionFactory().openSession();
             Query query = session.createQuery("from Equipo");
             equipo = (List<Equipo>) query.list();
+          
         } catch (HibernateException e) {
             System.out.println(e.toString());
         } finally {
             if (session != null) {
-                session.close();
+             //  session.close();
             }
         }
         return equipo;
@@ -45,14 +46,13 @@ public class EquipoDao implements Operaciones {
             session = NewHibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.save(equipo);
-            session.getTransaction().commit();
 
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+            //    session.close();
 
             }
 
@@ -64,17 +64,16 @@ public class EquipoDao implements Operaciones {
          Session session = null;
         try {
             Equipo equipo = (Equipo) value;
-            session = NewHibernateUtil.getSessionFactory().openSession();
+             session = NewHibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.update(equipo);
-            session.getTransaction().commit();
 
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+            //    session.close();
 
             }
 
@@ -85,8 +84,9 @@ public class EquipoDao implements Operaciones {
     public void Borrar(Object value) {
         Session session = null;
         try {
+
             Equipo equipo = (Equipo) value;
-            session = NewHibernateUtil.getSessionFactory().openSession();
+             session = NewHibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.delete(equipo);
             session.getTransaction().commit();
@@ -96,7 +96,7 @@ public class EquipoDao implements Operaciones {
             session.getTransaction().rollback();
         } finally {
             if (session != null) {
-                session.close();
+            //    session.close();
 
             }
 
